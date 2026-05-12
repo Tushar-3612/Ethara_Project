@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f3f4f6;
+  color: #111827;
+}
+
+/* Smooth theme transitions */
+* {
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
