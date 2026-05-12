@@ -1,131 +1,369 @@
-# Team Task Manager (Production-Ready Full Stack)
+# 🚀 Ethara – Enterprise Team Task & Attendance Management System
 
-Modern SaaS-style Team Task Manager with role-based workflows, static single-admin logic, project/task management, achievements, performance insights, and Railway-ready deployment setup.
+Ethara is a modern SaaS-style full-stack management platform built for teams, students, mentors, and organizations to manage projects, attendance, tasks, leaves, performance tracking, and collaboration in one centralized dashboard.
 
-## Tech Stack
+The platform includes role-based access control, attendance analytics, batch management, project tracking, leave management, guide monitoring, and cloud deployment using Railway & MongoDB Atlas.
 
-- Backend: Node.js, Express.js, MongoDB, Mongoose, JWT, bcrypt, dotenv, cors
-- Frontend: React (functional components), React Router DOM, Axios, Tailwind CSS, Vite
+---
 
-## Project Structure
+# 🌐 Live Deployment
+
+## Frontend
+https://awake-magic-production-3f5a.up.railway.app
+
+## Backend API
+https://etharaproject-production-2f20.up.railway.app
+
+---
+
+# 📌 Core Features
+
+## 🔐 Authentication & Authorization
+- JWT-based secure authentication
+- Login & Signup system
+- Role-based access control
+- Static Admin authentication
+- Protected routes & middleware
+
+### Roles
+- Admin
+- Guide / Mentor
+- Member / Student
+
+---
+
+# 👨‍💼 Admin Features
+
+The Admin dashboard provides complete management and monitoring capabilities.
+
+### Admin can:
+- Create & manage projects
+- Assign project members
+- Manage batches
+- Assign Guides/Mentors
+- Assign tasks to users
+- Monitor attendance
+- Approve/reject leave requests
+- Track team performance
+- View completed/pending projects
+- Rate users with star ratings
+- Monitor analytics & activity logs
+- Categorize projects:
+  - Basic
+  - Moderate
+  - Hard
+
+---
+
+# 👨‍🏫 Guide / Mentor Features
+
+Guides can monitor students assigned to their batches.
+
+### Guide can:
+- View assigned batch students
+- Monitor attendance
+- Edit attendance records
+- Track student progress
+- Monitor task completion
+- Review daily work submissions
+- Access project activity logs
+
+---
+
+# 👨‍💻 Member / Student Features
+
+Members can participate in projects and manage their daily workflow.
+
+### Member can:
+- View assigned projects
+- Track task progress
+- Mark attendance
+- Apply for leave
+- View achievements
+- Track completed tasks/projects
+- View attendance history
+- View performance analytics
+
+---
+
+# 📅 Attendance Management System
+
+The platform includes a complete attendance management workflow.
+
+### Features:
+- Daily attendance marking
+- Batch-based attendance
+- Guide/Admin attendance controls
+- Attendance edit history
+- Attendance analytics
+- Attendance history logs
+- Performance tracking using attendance
+
+---
+
+# 📂 Project & Task Management
+
+Ethara provides advanced project collaboration features.
+
+### Features:
+- Create projects
+- Assign multiple members
+- Multi-select member management
+- Assign Guides & Coordinators
+- Task assignment system
+- Task status tracking
+- Progress monitoring
+- Time-based project completion rules
+- Difficulty categorization
+
+### Task Status:
+- Pending
+- In Progress
+- Completed
+- Blocked
+
+---
+
+# 📊 Analytics & Performance Tracking
+
+The system tracks productivity and project performance.
+
+### Features:
+- User performance cards
+- Team analytics
+- Project completion metrics
+- Attendance analytics
+- Average completion time
+- Achievement tracking
+- Star rating system
+- Productivity monitoring
+
+---
+
+# 📝 Leave Management
+
+### Members can:
+- Submit leave applications
+
+### Admin/Guides can:
+- Approve leaves
+- Reject leaves
+- Monitor leave history
+
+---
+
+# 🎨 UI/UX Features
+
+Ethara uses a modern SaaS dashboard design.
+
+### UI Features:
+- Fully responsive layout
+- Sidebar navigation
+- Modern dashboard cards
+- Search & filters
+- Profile dropdown
+- Avatar-based UI
+- Clean spacing & layouts
+- Mobile-friendly responsive design
+
+---
+
+# 🛠 Tech Stack
+
+## Frontend
+- React.js
+- React Router DOM
+- Axios
+- Tailwind CSS
+- Vite
+
+## Backend
+- Node.js
+- Express.js
+- MongoDB Atlas
+- Mongoose
+- JWT Authentication
+- bcrypt
+- dotenv
+- cors
+
+## Deployment
+- Railway
+- MongoDB Atlas
+- GitHub
+
+---
+
+# 📁 Project Structure
 
 ```text
 backend/
   models/
   routes/
   middleware/
-  .env.example
+  controllers/
   server.js
+
 frontend/
   src/
-    pages/
     components/
+    pages/
     services/
-  .env.example
-```
+    context/
+````
 
-## Environment Variables
+---
 
-Copy `backend/.env.example` to `backend/.env` and set values:
+# ⚙️ Environment Variables
+
+## Backend `.env`
 
 ```env
 PORT=5000
-MONGO_URI=mongodb://127.0.0.1:27017/team-task-manager
-JWT_SECRET=replace_with_a_long_random_secret
-CLIENT_ORIGIN=http://localhost:5173
+MONGO_URI=your_mongodb_atlas_url
+JWT_SECRET=your_secret_key
+CLIENT_ORIGIN=your_frontend_url
 ```
 
-Copy `frontend/.env.example` to `frontend/.env`:
+## Frontend `.env`
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=your_backend_url/api
 ```
 
-## Installation
+---
 
-### Backend
+# 🚀 Installation Guide
+
+## Backend Setup
 
 ```bash
 cd backend
 npm install
-npm start
-```
-
-Development mode:
-
-```bash
 npm run dev
 ```
 
-### Frontend
+---
+
+## Frontend Setup
 
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
-Frontend runs on Vite default port (usually `http://localhost:5173`) and calls backend APIs at `http://localhost:5000/api`.
+---
 
-## API Endpoints
+# 🌍 Deployment
 
-### Auth
-- `POST /api/auth/signup`
-- `POST /api/auth/login`
+The application is fully deployed using:
 
-### Static Admin Login
-- Only one admin is supported.
-- Admin credentials are fixed:
-  - Email: `admin@taskmanager.com`
-  - Password: `1234`
-- Signup does **not** allow role selection. Every new account is created as `member`.
+* Railway (Frontend + Backend)
+* MongoDB Atlas (Cloud Database)
+* GitHub (Version Control)
 
-### Projects
-- `POST /api/projects` (admin only)
-- `GET /api/projects`
-- `PUT /api/projects/:id/members` (admin only) body: `{ add: [userId], remove: [userId] }`
+---
 
-### Tasks
-- `POST /api/tasks` (admin only)
-- `GET /api/tasks`
-- `PUT /api/tasks/:id`
+# 🔑 Demo Login Credentials
 
-### Activities
-- `GET /api/activities?limit=20`
+## 👨‍💼 Admin
 
-### Users (admin helper)
-- `GET /api/users` (admin only)
-- `PUT /api/users/:id/rating` (admin only, 1-5)
-- `GET /api/users/performance` (admin only)
-- `GET /api/users/me/achievements` (auth user)
+Email:
 
-## Role Behavior
+```text
+admin@ethara.com
+```
 
-- Admin:
-  - create projects
-  - add/remove project members
-  - assign tasks to members
-  - view all users/tasks
-  - rate members
-  - view team performance and top performer
-- Member:
-  - view only assigned tasks
-  - update own task status
-  - view achievements and contribution history
+Password:
 
-## Frontend Features
+```text
+admin123
+```
 
-- Modern SaaS layout: sidebar + top navbar + cards
-- Functional global search in navbar (task title search)
-- Task filtering by status/project/user
-- Color-coded status + overdue highlighting
-- Avatar dropdown (Profile, Logout)
-- Dark mode toggle (`☀️`/`🌙`)
-- Dashboard with stats, activity feed, and circular performer indicator
+---
 
-## Railway Deployment Notes
+## 👨‍🏫 Guide
 
-- Create **two** Railway services: `backend` and `frontend`.
-- **Backend**: set `MONGO_URI`, `JWT_SECRET`, and `CLIENT_ORIGIN` (your deployed frontend URL). Expose `PORT` automatically (Railway injects it).
-- **Frontend**: set `VITE_API_URL` to your deployed backend URL + `/api`.
-- Verify `CLIENT_ORIGIN` exactly matches the deployed frontend domain.
+Email:
+
+```text
+tusharnagare7875@gmail.com
+```
+
+Password:
+
+```text
+1234
+```
+
+---
+
+# 👨‍💻 Demo Members
+
+| Name         | Email                                           | Password |
+| ------------ | ----------------------------------------------- | -------- |
+| Rahul Sharma | [rahul@ethara.tech](mailto:rahul@ethara.tech)   | 1234     |
+| Priya Verma  | [priya@ethara.tech](mailto:priya@ethara.tech)   | 1234     |
+| Bharat Kolhe | [bharat@ethara.tech](mailto:bharat@ethara.tech) | 1234     |
+
+---
+
+# 📌 Demo Project
+
+## Project Name
+
+Smart Attendance & Task Automation System
+
+## Difficulty
+
+Hard
+
+## Guide
+
+Tushar Nagare
+
+## Batch
+
+Batch A
+
+---
+
+# 📌 Sample Requirements
+
+### 1. Frontend Dashboard Development
+
+Develop a responsive SaaS dashboard with analytics cards, attendance widgets, project tracking, and task overview sections.
+
+### 2. Attendance Management API
+
+Build backend APIs for attendance tracking, attendance history, and guide/admin controls.
+
+### 3. Leave Management System
+
+Create leave request workflows with approval/rejection functionality.
+
+### 4. Project Analytics Module
+
+Track completion rates, productivity, and attendance performance.
+
+---
+
+# 📌 Future Enhancements
+
+* Real-time notifications
+* WebSocket integration
+* AI-based performance analytics
+* Mobile application support
+* Email notifications
+* Daily productivity reports
+* Real-time chat system
+
+---
+
+# 👨‍💻 Developer
+
+Developed by Tushar Nagare 🚀
+
+```
+```
