@@ -25,14 +25,20 @@ const devViteOrigins =
   process.env.NODE_ENV === "production"
     ? []
     : [
-        "http://localhost:5173",
-        "http://localhost:5174",
-        "http://localhost:5175",
-        "http://127.0.0.1:5173",
-        "http://127.0.0.1:5174",
-        "http://127.0.0.1:5175",
-      ];
-const allowedOrigins = [...new Set([...fromEnv, ...devViteOrigins])];
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "http://localhost:5175",
+      "http://127.0.0.1:5173",
+      "http://127.0.0.1:5174",
+      "http://127.0.0.1:5175",
+    ];
+const allowedOrigins = [
+  ...new Set([
+    ...fromEnv,
+    ...devViteOrigins,
+    "https://awake-magic-production-3f5a.up.railway.app"
+  ])
+];
 const corsOrigin =
   allowedOrigins.length > 0
     ? allowedOrigins
